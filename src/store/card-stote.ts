@@ -29,9 +29,11 @@ export const useCartStore = create<CartState>((set, get) => ({
 	createdAt: null, // Fecha inicial del carrito
 
 	validCoupons: [
-		{ code: "NICO", discount: 50 },
-		{ code: "SAVE20", discount: 20 },
-		{ code: "FREESHIP", discount: 5 },
+		{ code: "MILANESA", discount: 10 },
+		{ code: "MAYONESA", discount: 20 },
+		{ code: "GONCY", discount: 30 },
+		{ code: "WALLBIT", discount: 50 },
+		{ code: "NOCUPON", discount: 0 },
 	],
 
 	getTotalItems: () => {
