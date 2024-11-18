@@ -1,34 +1,23 @@
 "use client";
 
-import { AddProductForm } from "@/components/form/AddProductForm";
-
 import { ListProductsModal } from "@/components/modal/ListProductsModal";
-
 import { Table } from "@/components/table/Table";
 import { Resume } from "@/components/text/Resume";
 import { useCartStore } from "@/store/card-stote";
 import Image from "next/image";
 import { useEffect } from "react";
-
 import logo from "../../public/logo/logo-wallbit.svg";
 import { BannerRoulette } from "@/components/banner/BannerRoulette";
-import { formatDate } from "@/utils/formatDate";
 import { AddProductModal } from "@/components/modal/AddProductModal";
 import { Footer } from "@/components/footer/Footer";
-import { Button } from "@/components/ui/button";
 
 export default function Home() {
 	const loadProducts = useCartStore((state) => state.loadProducts);
 	const createdAt = useCartStore((state) => state.createdAt);
-	const clearCart = useCartStore((state) => state.clearCart);
 
 	useEffect(() => {
 		loadProducts(); // Cargar productos desde localStorage al inicio
 	}, [loadProducts]);
-
-	const handleClearCart = () => {
-		clearCart(); // Limpiar el carrito al hacer clic
-	};
 
 	return (
 		<div className="px-52 mt-2 max-lg:px-2">
