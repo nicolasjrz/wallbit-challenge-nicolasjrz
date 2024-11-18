@@ -45,7 +45,7 @@ export const AddProductForm = ({ setModalOpen }: { setModalOpen: (isOpen: boolea
 
 			toast({
 				title: "Producto agregado",
-				description: `El producto fue agregado al carrito correctamente.`,
+				description: `El producto ${data.title} fue agregado al carrito correctamente. `,
 				className: "bg-blue-500 text-white border border-blue-700 rounded-lg shadow-md text-center flex flex-col items-center justify-center",
 			});
 
