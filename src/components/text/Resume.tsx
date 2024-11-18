@@ -54,23 +54,23 @@ export const Resume = () => {
 						{!isCouponApplied ? (
 							<div>
 								<div className="flex justify-between">
-									<p className="text-sm font-medium">Total de items </p>
-									<p>({cantProducts})</p>
+									<p className="text-xl font-medium max-sm:text-lg">Total de items </p>
+									<p className="text-xl font-bold font-[family-name:var(--font-poppins-sans)] max-sm:text-lg">( {cantProducts} )</p>
 								</div>
 								<div className="flex justify-between mt-2">
-									<p className="text-md font-bold font-[family-name:var(--font-poppins-sans)]">Total</p>
-									<p className="text-md font-bold font-[family-name:var(--font-poppins-sans)]">${subtotal.toFixed(2)}</p>
+									<p className="text-2xl font-bold font-[family-name:var(--font-poppins-sans)] max-sm:text-xl">Total</p>
+									<p className="text-2xl font-bold font-[family-name:var(--font-poppins-sans)] max-sm:text-xl">${subtotal.toFixed(2)}</p>
 								</div>
 							</div>
 						) : (
 							<div>
 								<div className="flex justify-between">
-									<p className="text-sm font-medium">Total de items </p>
+									<p className="text-lg font-medium">Total de items </p>
 									<p>({cantProducts})</p>
 								</div>
 								<div className="flex justify-between mt-2">
-									<p className="text-md font-bold font-[family-name:var(--font-poppins-sans)]">Total con descuento</p>
-									<p className="text-md font-bold font-[family-name:var(--font-poppins-sans)]">${calculateTotal().toFixed(2)}</p>
+									<p className="text-2xl font-bold font-[family-name:var(--font-poppins-sans)] max-sm:text-xl">Total con descuento</p>
+									<p className="text-2xl font-bold font-[family-name:var(--font-poppins-sans)] max-sm:text-xl">${calculateTotal().toFixed(2)}</p>
 								</div>
 							</div>
 						)}

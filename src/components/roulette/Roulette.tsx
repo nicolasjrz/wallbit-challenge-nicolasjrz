@@ -3,8 +3,11 @@
 import { arrayImagesRoulette } from "@/data/array";
 import Image from "next/image";
 import { useState } from "react";
-import logowallbit from "../../../public/images/wllbit.webp";
+import logowallbit from "../../../public//logo/favicon.webp";
 import { useToast } from "@/hooks/use-toast";
+import { Button } from "../ui/button";
+
+import { FaWandMagicSparkles } from "react-icons/fa6";
 
 const coupons = [
 	{ code: "MILANESA", discount: 10 },
@@ -85,13 +88,20 @@ const Roulette = () => {
 					<Image src={currentImage} alt="Ruleta girando" className="object-cover" width={200} height={200} />
 				) : (
 					<p className="font-bold cursor-pointer text-blue-400" onClick={handleCopy}>
-						{coupon.code || <Image src={logowallbit} alt="Ruleta girando" className="object-cover" width={200} height={200} />}
+						{coupon.code || <Image src={logowallbit} alt="Ruleta girando" className="object-cover bg-slate-200 bg-opacity-20" width={200} height={200} />}
 					</p>
 				)}
 			</div>
-			<button onClick={handleSpin} className="bg-blue-500 text-white uppercase px-4 py-2  mt-10 rounded-md hover:bg-blue-800" disabled={spinning}>
-				{spinning ? "Espere..." : "Girar Ruleta"}
-			</button>
+			<Button onClick={handleSpin} className="bg-blue-500 text-white uppercase px-4 py-2 mt-10 rounded-md hover:bg-blue-800 flex items-center justify-center gap-2" disabled={spinning}>
+				{spinning ? (
+					"Espere..."
+				) : (
+					<>
+						<FaWandMagicSparkles /> Girar Ruleta <FaWandMagicSparkles />
+					</>
+				)}
+			</Button>
+
 			{coupon.code && !spinning && (
 				<div className="mt-4">
 					{coupon.code !== "NOCUPON" ? (

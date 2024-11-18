@@ -18,12 +18,16 @@ export const CouponModal = () => {
 			</a>
 
 			<Dialog open={isModalOpen} onOpenChange={setModalOpen}>
-				<DialogContent className="sm:max-w-[800px] max-h-[80vh] overflow-y-auto bg-neutral-900 ">
-					<DialogHeader>
-						<DialogTitle>Cupones</DialogTitle>
-						<DialogDescription>ingresa el cupon obtenido</DialogDescription>
+				<DialogContent className="sm:max-w-[800px] max-h-[80vh] overflow-y-auto bg-neutral-900 rounded-lg shadow-lg text-white">
+					<DialogHeader className="text-center">
+						<DialogTitle className="text-2xl font-bold">¡Canjea tu Cupón!</DialogTitle>
+						<DialogDescription className="text-lg mt-2 text-neutral-300">
+							Ingresa el código de tu cupón para desbloquear descuentos exclusivos. ¡Aprovecha esta oportunidad!
+						</DialogDescription>
 					</DialogHeader>
-					<CouponForm setModalOpen={setModalOpen} />
+					<div className="mt-4">
+						<CouponForm setModalOpen={setModalOpen} />
+					</div>
 				</DialogContent>
 			</Dialog>
 		</>

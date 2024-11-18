@@ -39,7 +39,7 @@ export const CouponForm = ({ setModalOpen }: { setModalOpen: (isOpen: boolean) =
 		<div>
 			<form onSubmit={handleSubmit} className="grid grid-cols-2 mt-4 mx-2 max-xl:grid-cols-1 gap-2">
 				<Input type="text" value={couponCode} onChange={handleCouponChange} placeholder="Ingrese código de cupón" className="p-2 border border-gray-300 rounded" />
-				<Button type="submit" className="bg-blue-500 text-white rounded" disabled={!!discount}>
+				<Button type="submit" className="bg-blue-500 text-white rounded hover:bg-blue-600" disabled={!!discount}>
 					Aplicar cupón
 				</Button>
 			</form>

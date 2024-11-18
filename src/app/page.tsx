@@ -32,7 +32,9 @@ export default function Home() {
 
 	return (
 		<div className="px-52 mt-2 max-lg:px-2">
-			<Image src={logo} alt="logo wallbit" className="w-60 inline-block relative object-center !rounded-none object-contain p-1" width={100} height={100} />
+			<a href="https://wallbit.io/" target="_blank" rel="noopener noreferrer">
+				<Image src={logo} alt="logo wallbit" className="w-60 inline-block relative object-center !rounded-none object-contain p-1" width={100} height={100} />
+			</a>
 
 			<div className="flex justify-start items-center">
 				{/* Resumen de formulario */}
