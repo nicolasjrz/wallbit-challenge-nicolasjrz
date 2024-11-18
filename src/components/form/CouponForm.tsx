@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { BiSolidCoupon } from "react-icons/bi";
 
 export const CouponForm = ({ setModalOpen }: { setModalOpen: (isOpen: boolean) => void }) => {
 	const { toast } = useToast();
@@ -40,7 +41,7 @@ export const CouponForm = ({ setModalOpen }: { setModalOpen: (isOpen: boolean) =
 			<form onSubmit={handleSubmit} className="grid grid-cols-2 mt-4 mx-2 max-xl:grid-cols-1 gap-2">
 				<Input type="text" value={couponCode} onChange={handleCouponChange} placeholder="Ingrese código de cupón" className="p-2 border border-gray-300 rounded" />
 				<Button type="submit" className="bg-blue-500 text-white rounded hover:bg-blue-600" disabled={!!discount}>
-					Aplicar cupón
+					<BiSolidCoupon /> Aplicar cupón
 				</Button>
 			</form>
 		</div>
