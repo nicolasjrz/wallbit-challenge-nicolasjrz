@@ -3,14 +3,18 @@
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useState } from "react";
 import { getProducts } from "@/actions/get-products";
-import { ProductItem } from "@/interfaces/product-interface";
+import { Product, ProductItem } from "@/interfaces/product-interface";
 import Image from "next/image";
+import { useCartStore } from "@/store/card-stote";
+import { useToast } from "@/hooks/use-toast";
+import { ProductCard } from "../card/ProductCard";
 
 export const ListProductsModal = () => {
 	const [isModalOpen, setModalOpen] = useState(false); // Estado del modal
 	const [products, setProducts] = useState([]); // Estado para los productos
 	const [loading, setLoading] = useState(false); // Estado para indicar si está cargando
-
+	const addProduct = useCartStore((state) => state.addProduct);
+	const { toast } = useToast();
 	const handleOpen = async () => {
 		setModalOpen(true);
 		await loadProducts(); // Cargar los productos al abrir el modal
@@ -21,6 +25,16 @@ export const ListProductsModal = () => {
 		const productsList = await getProducts();
 		setProducts(productsList);
 		setLoading(false);
+	};
+
+	// Función para agregar un producto al carrito
+	const handleAddToCart = (product: Product) => {
+		addProduct(product); // Acción del carrito
+		toast({
+			title: "Producto agregado",
+			description: `El producto ${product.title} fue agregado al carrito correctamente. `,
+			className: "bg-blue-500 text-white border border-blue-700 rounded-lg shadow-md text-center flex flex-col items-center justify-center",
+		});
 	};
 
 	return (
@@ -41,32 +55,7 @@ export const ListProductsModal = () => {
 					) : (
 						<div className="mt-4 space-y-4">
 							{products.map((product: ProductItem) => (
-								<div key={product.id} className="max-w-sm mx-auto bg-gray-50 rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-									<div className="md:flex">
-										<div className="md:flex-shrink-0">
-											<div className=" flex justify-center items-center h-full w-full ml-4">
-												<Image src={product.image} alt={product.title} width={100} height={100} className="object-contain" />
-											</div>
-										</div>
-										<div className="p-8">
-											<a href="#" className="block mt-1 text-lg leading-tight font-medium text-black hover:underline">
-												{product.title}
-											</a>
-											<p className="mt-2 text-gray-500">{product.description}</p>
-											<div className="mt-4 grid grid-cols-3 max-sm:grid-cols-1">
-												<p className="text-gray-600  uppercase tracking-wide text-sm font-semibold">
-													ID: <span className="font-bold">{product.id}</span>
-												</p>
-												<p className=" text-gray-600 uppercase tracking-wide text-sm font-semibold">
-													Rating: <span className="font-bold">{product.rating.rate}</span>
-												</p>
-												<p className="text-gray-600 uppercase tracking-wide text-sm font-semibold">
-													Precio: <span className="font-bold">${product.price}</span>
-												</p>
-											</div>
-										</div>
-									</div>
-								</div>
+								<ProductCard key={product.id} product={product} />
 							))}
 						</div>
 					)}
