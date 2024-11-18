@@ -3,18 +3,14 @@
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useState } from "react";
 import { getProducts } from "@/actions/get-products";
-import { Product, ProductItem } from "@/interfaces/product-interface";
-import Image from "next/image";
-import { useCartStore } from "@/store/card-stote";
-import { useToast } from "@/hooks/use-toast";
+import { ProductItem } from "@/interfaces/product-interface";
+
 import { ProductCard } from "../card/ProductCard";
 
 export const ListProductsModal = () => {
 	const [isModalOpen, setModalOpen] = useState(false); // Estado del modal
 	const [products, setProducts] = useState([]); // Estado para los productos
 	const [loading, setLoading] = useState(false); // Estado para indicar si está cargando
-	const addProduct = useCartStore((state) => state.addProduct);
-	const { toast } = useToast();
 	const handleOpen = async () => {
 		setModalOpen(true);
 		await loadProducts(); // Cargar los productos al abrir el modal
@@ -25,16 +21,6 @@ export const ListProductsModal = () => {
 		const productsList = await getProducts();
 		setProducts(productsList);
 		setLoading(false);
-	};
-
-	// Función para agregar un producto al carrito
-	const handleAddToCart = (product: Product) => {
-		addProduct(product); // Acción del carrito
-		toast({
-			title: "Producto agregado",
-			description: `El producto ${product.title} fue agregado al carrito correctamente. `,
-			className: "bg-blue-500 text-white border border-blue-700 rounded-lg shadow-md text-center flex flex-col items-center justify-center",
-		});
 	};
 
 	return (
