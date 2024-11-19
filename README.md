@@ -1,65 +1,65 @@
 [![Wallbit](./assets/logo.jpg)](https://wallbit.io/)
 
-> El banco digital para trabajadores remotos.
-
 # Wallbit Junior Frontend Challenge
 
-Para este desafío, nuestro cliente nos encargó hacer un carrito de compras para programadores. Tiene un formulario con 2 campos: ID del producto y cantidad. Los programadores habitualmente no necesitan saber ni ver que productos comprar, sino que saben por conexiones astrales cual es el ID del producto que quieren y así los agregan a su carrito.
+Solución del desafío de Wallbit Junior Frontend Challenge, en la cual se crea un carrito de compras. A continuación, se detallan las características implementadas y los pasos para correr el proyecto.
 
-Cada vez que se agrega un producto, vamos a obtener el producto desde la API y lo vamos a mostrar en una tabla, junto a la cantidad que el usuario eligió.
+## Instalación
 
-> Solo lo mostramos visualmente por si hay alguien que no sea programador mirando la pantalla.
+1. Clona el repositorio:
 
-La aplicación se vería así:
+    ````
+    git clone https://github.com/nicolasjrz/wallbit-challenge-nicolasjrz.git
+    ````
 
-![Sin productos](./assets/app-0.jpg)
-> Inicialmente no hay productos en el carrito
+2. Ingresa a la carpeta del proyecto
+    ````
+    cd wallbit-challenge-nicolasjrz
+    ````
 
-![Con productos](./assets/app-1.jpg)
-> Con productos en el carrito
+3. Instala las dependencias
+    ````
+    npm install
+    ````
 
-## Requisitos
+3. Ejecutar el proyecto
+    ````
+    npm run dev
+    ````
+    
+## Lenguajes utilziados
 
-La API que nos dió nuestro cliente es: [Fake Store API](https://fakestoreapi.com/). El cliente nos dijo que su stack de frontend es React, que prefiere el challenge hecho con eso, pero está abierto a cualquier stack que quieras usar.
+**Nextjs** - **Zustand** - **Tailwindcss** - **TypeScript** 
 
-- [ ] Podemos agregar productos al carrito.
-- [ ] Manejar errores que nos devuelva la API.
-- [ ] Mostrar una lista con los productos agregados incluyendo `title`, `price` e `image` del producto y la `cantidad` que el usuario agregó.
 
-## Extras
 
-- [ ] El carrito se persiste al recargar la página.
-- [ ] Mostrar el total de productos agregados.
-- [ ] Mostrar el costo total del carrito.
-- [ ] Mostrar la fecha de creación del carrito.
+## Características del Sistema de Carrito de Compras
 
-## Bonus
+- **Agregar productos al carrito**: Permite a los usuarios ingresar el ID de un producto y la cantidad deseada para añadirlo al carrito de manera rápida y sencilla.
 
-Para destacar, podés agregar cualquier cosa que se te ocurra que llame la atención. No tiene por qué ser necesariamente en el código, o una dependencia. Puede ser algo visual, un easter egg, una funcionalidad, o bueno, algo en el código.
+- **Visualización de productos en el carrito**: Se presenta una tabla con los productos añadidos al carrito, incluyendo:
+  - Nombre del producto
+  - Precio
+  - Imagen
+  - Cantidad
 
-> [!NOTE]
-> Siempre recordá que lo que agregues debe sumar a la experiencia del usuario y no complicar su navegación. Tenés que pensar que quien va a usar la aplicación no va a haber hablado con vos previamente y aun así debería poder usar la aplicación y obtener la mejor experiencia posible.
+- **Listado de productos**: Los usuarios pueden ver los productos disponibles con su información y añadirlos al carrito directamente desde esta vista.
 
-## Entregables
+- **Persistencia del carrito**: El contenido del carrito se mantiene incluso después de recargar la página, garantizando que no se pierdan los productos agregados.
 
-- [ ] Crear un Pull Request a este repositorio con tu solución.
-- [ ] Reemplazar el `README.md` con instrucciones para correr el proyecto e información relevante para la evaluación.
-- [ ] Incluir el link al deploy de tu aplicación.
+- **Eliminación de productos**: Se ha agregado un botón para eliminar productos de la lista del carrito de forma rápida y sencilla.
 
-## Premio
+- **Cantidad total de productos**: Se muestra la cantidad total de productos añadidos al carrito, lo que ayuda a los usuarios a tener un resumen rápido.
 
-Se va a entregar un premio en vivo durante [mi stream](https://twitch.tv/goncypozzo) el 19 de Noviembre de 2024 a las 19:00hs Argentina (GMT -3) entre todos los que completen el desafío. El premio va a ser un micrófono Razer Seiren Mini.
+- **Costo total del carrito**: Calcula y muestra el costo total de todos los productos en el carrito, permitiendo a los usuarios conocer el total de su compra.
 
-El ganador va a ser elegido por el chat, la gente de Wallbit y yo.
+- **Fecha de creación del carrito**: Se guarda la fecha en la que se agregó el primer producto al carrito. Esta fecha persiste y se reinicia si el carrito es vaciado.
 
-> [!IMPORTANT]
-> El ganador debe estar presente en el stream para recibir el premio.
+- **Ruleta**: Una ruleta interactiva en la que los usuarios pueden ganar un cupón de descuento para utilizar en la tienda.
 
-![Razer Seiren Mini](./assets/sorteo.jpg)
+- **Gestión de notificaciones**: Al recibir una notificación, se muestra un mensaje en forma de *toast* utilizando ShadCN, proporcionando información instantánea al usuario.
 
-> En caso de no poder enviarse el premio, se pagará el equivalente de 70 USD.
 
-El deadline para enviar el PR es el 19 de Noviembre de 2024 a las 15:00hs Argentina (GMT -3).
+## Demo
 
-> [!IMPORTANT]
-> Los PRs se cerrarán luego de esa hora así que no te olvides de hacerlo antes.
+
