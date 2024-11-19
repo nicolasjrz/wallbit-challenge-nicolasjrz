@@ -6,9 +6,7 @@ export const BannerRoulette = () => {
 		<div className="w-full    py-2  grid grid-cols-2  place-items-center  max-sm:grid-cols-1 max-sm:px-2 ">
 			<div className="flex flex-col">
 				<span className="text-4xl font-bold text-center max-sm:text-lg">¡Gira la ruleta y gana un increíble descuento!</span>
-				<span className="text-lg mt-2 text-neutral-600 text-center max-sm:hidden">
-					Aprovecha esta oportunidad para obtener un descuento exclusivo en tu próxima compra. ¡Haz tu consulta gratuita hoy mismo y comienza a ahorrar!
-				</span>
+				<span className="text-lg mt-2 text-neutral-100 text-center max-sm:hidden">Aprovecha esta oportunidad para obtener un descuento exclusivo en tu próxima compra.</span>
 			</div>
 
 			<div className="  flex w-full justify-center items-center  max-sm:mt-4">
