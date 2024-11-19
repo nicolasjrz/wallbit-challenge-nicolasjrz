@@ -29,10 +29,15 @@ Solución del desafío de Wallbit Junior Frontend Challenge, en la cual se crea 
 
 Luego visita http://localhost:3000 en tu navegador.
     
-    
-## Lenguajes utilziados
 
-**Nextjs** - **Zustand** - **Tailwindcss** - **TypeScript** 
+## Lenguajes y tecnologías utilizadas
+
+- **Next.js**: Framework React para la construcción de aplicaciones web de una sola página (SPA) y aplicaciones renderizadas en el servidor (SSR).
+- **Zustand**: Librería de gestión de estado ligera y fácil de usar para React.
+- **Tailwind CSS**: Framework de CSS utilitario para un diseño rápido y personalizado.
+- **TypeScript**: Superset de JavaScript que añade tipado estático a las aplicaciones, mejorando la escalabilidad y mantenimiento del código.
+- **Fake Store API**: Api utilizada para el listado de productos
+
 
 
 
