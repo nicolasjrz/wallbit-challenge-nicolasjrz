@@ -26,6 +26,9 @@ Solución del desafío de Wallbit Junior Frontend Challenge, en la cual se crea 
     ````
     npm run dev
     ````
+
+Luego visita http://localhost:3000 en tu navegador.
+    
     
 ## Lenguajes utilziados
 
@@ -62,4 +65,5 @@ Solución del desafío de Wallbit Junior Frontend Challenge, en la cual se crea 
 
 ## Demo
 
+[Deploy de la app en vercel](https://wallbit-challenge-nicolasjrz.vercel.app/)
 
