@@ -1,3 +1,4 @@
+import { useToast } from "@/hooks/use-toast";
 import { useCartStore } from "@/store/card-stote";
 import Image from "next/image";
 import React from "react";
@@ -11,6 +12,15 @@ export const Table = () => {
 	const removeProduct = useCartStore((state) => state.removeProduct);
 	const addQuantity = useCartStore((state) => state.addQuantity);
 	const removeQuantity = useCartStore((state) => state.removeQuantity);
+	const { toast } = useToast();
+	const handleRemoveProduct = (id: number, title: string) => {
+		removeProduct(id);
+		toast({
+			title: "Producto eliminado del carrito",
+			description: `El producto ${title} fue eliminado del carrito correctamente. `,
+			className: "bg-red-500 text-white border border-red-700 rounded-lg shadow-md text-center flex flex-col items-center justify-center",
+		});
+	};
 
 	return (
 		<div className="flex items-center justify-center ">
@@ -89,7 +99,7 @@ export const Table = () => {
 										<button
 											className="font-sans font-medium text-center text-xs  px-2 py-2 rounded-md bg-red-500 text-white hover:bg-red-600"
 											type="button"
-											onClick={() => removeProduct(product.id)}
+											onClick={() => handleRemoveProduct(product.id, product.title)}
 										>
 											<FaTrashCan />
 										</button>

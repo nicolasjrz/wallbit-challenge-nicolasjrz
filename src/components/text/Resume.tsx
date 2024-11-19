@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useCartStore } from "@/store/card-stote";
 import { CouponModal } from "../modal/CouponModal";
+import { useToast } from "@/hooks/use-toast";
 
 export const Resume = () => {
 	const [subtotal, setSubtotal] = useState(0);
@@ -13,10 +14,19 @@ export const Resume = () => {
 	const totall = useCartStore((state) => state.getTotalItems);
 	const products = useCartStore((state) => state.products);
 	const cantProducts = totall();
-
+	const { toast } = useToast();
 	useEffect(() => {
 		setSubtotal(products.reduce((total, product) => total + product.price * product.quantity, 0));
 	}, [products]);
+
+	const handleRemoveCode = () => {
+		removeCoupon();
+		toast({
+			title: "Código eliminado",
+			description: "¡Puedes agregar otro código de descuento!",
+			className: "bg-red-500 text-white border border-red-700 rounded-lg shadow-md text-center flex flex-col items-center justify-center",
+		});
+	};
 
 	return (
 		<div className="mt-2 max-sm:h-80 flex flex-col justify-between  ">
@@ -39,7 +49,10 @@ export const Resume = () => {
 											Código de descuento: <span className=" text-xs font-bold">{couponCode}</span>
 										</p>
 									</div>
-									<button className="flex items-center justify-center p-1 text-xs font-bold uppercase text-red-300 hover:text-red-700 max-sm:text-xs" onClick={() => removeCoupon()}>
+									<button
+										className="flex items-center justify-center p-1 text-xs font-bold uppercase text-red-300 hover:text-red-700 max-sm:text-xs"
+										onClick={() => handleRemoveCode()}
+									>
 										Eliminar código
 									</button>
 								</div>
