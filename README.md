@@ -65,6 +65,8 @@ Luego visita http://localhost:3000 en tu navegador.
 
 - **Ruleta**: Una ruleta interactiva en la que los usuarios pueden ganar un cupón de descuento para utilizar en la tienda.
 
+- **Cupon de descuento**: Al aplicar el cupon tenes descuentos en tu compra.
+
 - **Gestión de notificaciones**: Al recibir una notificación, se muestra un mensaje en forma de *toast* utilizando ShadCN, proporcionando información instantánea al usuario.
 
 
